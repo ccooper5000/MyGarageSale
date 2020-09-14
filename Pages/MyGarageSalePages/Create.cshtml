@@ -1,0 +1,86 @@
+﻿@page
+@model MyGarageSale.Pages.MyGarageSalePages.CreateModel
+
+
+
+
+
+<br />
+<h2 class="text-info">Add new item to sell</h2>
+<br/>
+<div class="border container" style="padding:30px;">
+    <form method="post">
+       <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+       <div class="form-group row">
+           <div class="col-4">
+               <label asp-for="ItemForSale.ItemCategory">Category</label>
+           </div>
+           <div class="col-6">
+               <input asp-for="ItemForSale.ItemCategory" class="form-control" />
+           </div>
+           @*<span asp-validation-for="ItemForSale.ItemCategory" class="text-danger">Category required</span>*@
+       </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="ItemForSale.ItemName">Name</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="ItemForSale.ItemName" class="form-control" />
+            </div>
+            @*<span asp-validation-for="ItemForSale.ItemName" class="text-danger">Name required</span>*@
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="ItemForSale.ItemModel">Model</label>
+            </div>
+
+            <div class="col-6">
+                <input asp-for="ItemForSale.ItemModel" class="form-control" />
+            </div>
+           @*<span asp-validation-for="ItemForSale.ItemModel" class="text-danger">Model required</span>*@
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="ItemForSale.ItemManufacturer">Manufacturer</label>
+            </div>
+
+            <div class="col-6">
+                <input asp-for="ItemForSale.ItemManufacturer" class="form-control" />
+            </div>
+            @*<span asp-validation-for="ItemForSale.ItemManufacturer" class="text-danger">Manufacturer required</span>*@
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="ItemForSale.ItemPrice">Price</label>
+            </div>
+
+            <div class="col-6">
+                <input asp-for="ItemForSale.ItemPrice" class="form-control" />
+            </div>
+            @*<span asp-validation-for="ItemForSale.ItemPrice" class="text-danger">Price required</span>*@
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="ItemForSale.ItemDescription">Description</label>
+            </div>
+
+            <div class="col-6">
+                <input asp-for="ItemForSale.ItemDescription" class="form-control" />
+            </div>
+            @*<span asp-validation-for="ItemForSale.ItemDescription" class="text-danger">Description</span>*@
+        </div>
+        <div class="form-group row">
+            <div class="col-3 offset-4">
+                <input type="submit" value="Create" class="btn btn-primary form-control" />
+            </div>
+            <div class="col-3">
+                <a asp-page="Index" class="btn btn-success form-control"> Back to item list</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts
+{ 
+    <partial name="_ValidationScriptsPartial" />
+}

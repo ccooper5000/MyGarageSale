@@ -1,0 +1,122 @@
+﻿@page
+@model MyGarageSale.Pages.MyGarageSalePages.IndexModel
+
+<br />
+
+<div class="container row p-0 m-0">
+
+    <div class="col-9">
+        <h2 class="text-info">My Item List</h2>
+    </div>
+    <div class="col-3">
+        <a asp-page="Create" class="btn btn-info form-control text-white">Add item to sell</a>
+
+    </div>
+
+    <div class="col-12 border p-3 mt-3">
+        <form method="post">
+
+
+            @if (Model.Items.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <tr class="col-12 table-success">
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().Id"> ID</label>
+                        </th>
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().ItemCategory">Category</label>
+                        </th>
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().ItemName">Name</label>
+                        </th>
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().ItemModel">Model</label>
+                        </th>
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().ItemManufacturer">Manufacturer</label>
+                        </th>
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().ItemPrice">Price</label>
+                        </th>
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().ItemDescription">Description</label>
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+
+                        </th>
+
+                    </tr>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr class="col-12">
+                            <td>
+                                @Html.DisplayFor(m => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.ItemCategory)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.ItemName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.ItemModel)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.ItemManufacturer)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.ItemPrice)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.ItemDescription)
+                            </td>
+                            <td>
+                                <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure you want to delete this item?')" class="btn btn-danger btn-sm">Delete</button>
+                            </td>
+                            <td>
+                                <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edit</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <p>No items currently listed for sale. </p>
+            }
+        </form>
+    </div>
+
+
+    <div class="col-12" style="text-align:center">
+        <br /><br />
+        <span class="h3 text-info">OR</span>
+        <br /><br />
+    </div>
+
+
+    <div class="column-12 border p-3">
+        <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Name</th>
+                    <th>Model</th>
+                    <th>Manufacturer</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+@section Scripts
+{ 
+<script src="~/js/mygaragesalepages.js"></script>
+}
+67
